@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { FaShoppingCart, FaUserMinus, FaUserPlus } from 'react-icons/fa';
+
+import {
+  AiOutlineShoppingCart,
+  AiOutlineUserAdd,
+  AiOutlineUserDelete,
+} from 'react-icons/ai';
 
 const CartButtons = () => {
   return (
@@ -8,22 +13,22 @@ const CartButtons = () => {
       <Link to="cart" className="cart-btn">
         Cart
         <span className="cart-container">
-          <FaShoppingCart />
+          <AiOutlineShoppingCart />
           <span className="cart-value">12</span>
         </span>
       </Link>
       <button type="button" className="auth-btn">
-        Login <FaUserPlus />
+        Login <AiOutlineUserAdd />
       </button>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
+  gap: 18px;
 
   .cart-btn {
     font-size: 1.6rem;
@@ -79,6 +84,7 @@ const Wrapper = styled.div`
     color: var(--color-grey-6);
     letter-spacing: var(--small-spacing);
     padding: 0.6rem 0;
+    margin-left: 1.4rem;
     border-bottom: 2px solid transparent;
     transition: var(--transition);
     cursor: pointer;

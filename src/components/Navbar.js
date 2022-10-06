@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import logo from '../assets/logo.png';
-import { FaBars } from 'react-icons/fa';
+import { AiOutlineMenu } from 'react-icons/ai';
 import { links } from '../utils/constants';
 import NavButtons from './NavButtons';
 
@@ -15,7 +15,7 @@ const Nav = () => {
             <img src={logo} alt="The Casa Décor" />
           </Link>
           <button type="button" className="nav-toggle">
-            <FaBars />
+            <AiOutlineMenu />
           </button>
         </div>
         <ul className="nav-links">
@@ -109,7 +109,7 @@ const NavContainer = styled.nav`
     }
 
     .nav-buttons-wrapper {
-      display: grid;
+      display: flex;
     }
   }
 `;
