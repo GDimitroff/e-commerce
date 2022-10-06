@@ -1,12 +1,16 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+import { useGlobalContext } from '../context/GlobalContext';
+
 import logo from '../assets/logo.png';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { links } from '../utils/constants';
 import NavButtons from './NavButtons';
 
 const Nav = () => {
+  const { toggleSidebar } = useGlobalContext();
+
   return (
     <NavContainer>
       <div className="nav-center">
@@ -14,7 +18,7 @@ const Nav = () => {
           <Link to="/">
             <img src={logo} alt="The Casa Décor" />
           </Link>
-          <button type="button" className="nav-toggle">
+          <button type="button" className="nav-toggle" onClick={toggleSidebar}>
             <AiOutlineMenu />
           </button>
         </div>

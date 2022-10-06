@@ -1,20 +1,23 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+import { useGlobalContext } from '../context/GlobalContext';
+
 import logo from '../assets/logo.png';
 import { AiOutlineClose } from 'react-icons/ai';
 import { links } from '../utils/constants';
 import NavButtons from './NavButtons';
 
 const Sidebar = () => {
-  const isOpen = true;
+  const { isSidebarOpen, toggleSidebar } = useGlobalContext();
 
   return (
     <SidebarContainer>
-      <aside className={`${isOpen ? 'sidebar show-sidebar' : 'sidebar'}`}>
+      <aside
+        className={`${isSidebarOpen ? 'sidebar show-sidebar' : 'sidebar'}`}>
         <div className="sidebar-header">
           <img src={logo} alt="The Casa Décor" className="logo" />
-          <button className="close-btn" type="button">
+          <button className="close-btn" type="button" onClick={toggleSidebar}>
             <AiOutlineClose />
           </button>
         </div>
@@ -66,8 +69,8 @@ const SidebarContainer = styled.div`
 
   .close-btn {
     position: absolute;
-    top: 30px;
-    right: 30px;
+    top: 25px;
+    right: 25px;
     font-size: 3rem;
     background: transparent;
     border-color: transparent;
