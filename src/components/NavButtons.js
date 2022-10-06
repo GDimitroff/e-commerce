@@ -1,16 +1,20 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+import { useGlobalContext } from '../context/GlobalContext';
+
 import {
   AiOutlineShoppingCart,
   AiOutlineUserAdd,
   AiOutlineUserDelete,
 } from 'react-icons/ai';
 
-const CartButtons = () => {
+const NavButtons = () => {
+  const { closeSidebar } = useGlobalContext();
+
   return (
     <Wrapper className="nav-buttons-wrapper">
-      <Link to="cart" className="cart-btn">
+      <Link to="cart" className="cart-btn" onClick={closeSidebar}>
         Cart
         <span className="cart-container">
           <AiOutlineShoppingCart />
@@ -100,4 +104,4 @@ const Wrapper = styled.div`
     }
   }
 `;
-export default CartButtons;
+export default NavButtons;

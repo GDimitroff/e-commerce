@@ -1,7 +1,7 @@
 import React, { useContext, useReducer } from 'react';
 
 import globalReducer from '../reducers/globalReducer';
-import { TOGGLE_SIDEBAR } from '../actions';
+import { SIDEBAR_OPEN, SIDEBAR_CLOSE } from '../actions';
 
 const initialState = {
   isSidebarOpen: false,
@@ -12,12 +12,16 @@ const GlobalContext = React.createContext();
 const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(globalReducer, initialState);
 
-  const toggleSidebar = () => {
-    dispatch({ type: TOGGLE_SIDEBAR });
+  const openSidebar = () => {
+    dispatch({ type: SIDEBAR_OPEN });
+  };
+
+  const closeSidebar = () => {
+    dispatch({ type: SIDEBAR_CLOSE });
   };
 
   return (
-    <GlobalContext.Provider value={{ ...state, toggleSidebar }}>
+    <GlobalContext.Provider value={{ ...state, openSidebar, closeSidebar }}>
       {children}
     </GlobalContext.Provider>
   );

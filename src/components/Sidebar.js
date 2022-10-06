@@ -9,7 +9,7 @@ import { links } from '../utils/constants';
 import NavButtons from './NavButtons';
 
 const Sidebar = () => {
-  const { isSidebarOpen, toggleSidebar } = useGlobalContext();
+  const { isSidebarOpen, closeSidebar } = useGlobalContext();
 
   return (
     <SidebarContainer>
@@ -17,7 +17,7 @@ const Sidebar = () => {
         className={`${isSidebarOpen ? 'sidebar show-sidebar' : 'sidebar'}`}>
         <div className="sidebar-header">
           <img src={logo} alt="The Casa Décor" className="logo" />
-          <button className="close-btn" type="button" onClick={toggleSidebar}>
+          <button className="close-btn" type="button" onClick={closeSidebar}>
             <AiOutlineClose />
           </button>
         </div>
@@ -26,11 +26,13 @@ const Sidebar = () => {
             const { id, text, url } = link;
             return (
               <li key={id}>
-                <Link to={url}>{text}</Link>
+                <Link to={url} onClick={closeSidebar}>
+                  {text}
+                </Link>
               </li>
             );
           })}
-          <li>
+          <li onClick={closeSidebar}>
             <Link to="checkout">Checkout</Link>
           </li>
         </ul>

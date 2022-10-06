@@ -1,11 +1,17 @@
-import { TOGGLE_SIDEBAR } from '../actions';
+import { SIDEBAR_OPEN, SIDEBAR_CLOSE } from '../actions';
 
 const globalReducer = (state, action) => {
   switch (action.type) {
-    case TOGGLE_SIDEBAR: {
+    case SIDEBAR_OPEN: {
       return {
         ...state,
-        isSidebarOpen: !state.isSidebarOpen,
+        isSidebarOpen: true,
+      };
+    }
+    case SIDEBAR_CLOSE: {
+      return {
+        ...state,
+        isSidebarOpen: false,
       };
     }
     default: {

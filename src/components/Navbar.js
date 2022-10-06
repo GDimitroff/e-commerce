@@ -9,7 +9,7 @@ import { links } from '../utils/constants';
 import NavButtons from './NavButtons';
 
 const Nav = () => {
-  const { toggleSidebar } = useGlobalContext();
+  const { openSidebar } = useGlobalContext();
 
   return (
     <NavContainer>
@@ -18,7 +18,7 @@ const Nav = () => {
           <Link to="/">
             <img src={logo} alt="The Casa Décor" />
           </Link>
-          <button type="button" className="nav-toggle" onClick={toggleSidebar}>
+          <button type="button" className="nav-toggle" onClick={openSidebar}>
             <AiOutlineMenu />
           </button>
         </div>
@@ -99,7 +99,6 @@ const NavContainer = styled.nav`
       a {
         color: var(--color-grey-6);
         font-size: 1.6rem;
-        font-weight: 700;
         text-transform: uppercase;
         letter-spacing: var(--medium-spacing);
         padding: 0.6rem;
