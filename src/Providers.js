@@ -5,7 +5,7 @@ import GlobalProvider from './context/GlobalContext';
 const Providers = ({ children }) => {
   return (
     <GlobalProvider>
-      <Router>{children}</Router>;
+      <Router>{children}</Router>
     </GlobalProvider>
   );
 };

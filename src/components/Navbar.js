@@ -39,6 +39,7 @@ const Nav = () => {
 };
 
 const NavContainer = styled.nav`
+  height: 10rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,7 +47,7 @@ const NavContainer = styled.nav`
 
   .nav-center {
     width: 100vw;
-    padding: 2rem;
+    padding: 0 2rem;
     margin: 0 auto;
     max-width: var(--max-width);
   }
