@@ -2,44 +2,44 @@
   /* general colors */
   --color-white: #fff;
   --color-black: #222;
-  --color-red-dark: hsl(360, 67%, 44%);
-  --color-red-light: hsl(360, 71%, 66%);
-  --color-green-dark: hsl(125, 67%, 44%);
-  --color-green-light: hsl(125, 71%, 66%);
+  --color-red-dark: #dc2626;
+  --color-red-light: #f87171;
+  --color-green-dark: #15803d;
+  --color-green-light: #4ade80;
 
   /* dark shades of primary color*/
-  --color-primary-1: hsl(22, 28%, 21%);
-  --color-primary-2: hsl(22, 28%, 29%);
-  --color-primary-3: hsl(22, 28%, 37%);
-  --color-primary-4: hsl(22, 28%, 45%);
+  --color-primary-1: #92400e;
+  --color-primary-2: #b45309;
+  --color-primary-3: #d97706;
+  --color-primary-4: #f59e0b;
 
   /* primary/main color */
-  --color-primary-5: hsl(22, 31%, 52%);
+  --color-primary-5: #fbbf24;
 
   /* light tints of primary color */
-  --color-primary-6: hsl(22, 31%, 60%);
-  --color-primary-7: hsl(22, 31%, 67%);
-  --color-primary-8: hsl(20, 31%, 74%);
-  --color-primary-9: hsl(22, 31%, 81%);
-  --color-primary-10: hsl(22, 31%, 88%);
+  --color-primary-6: #fcd34d;
+  --color-primary-7: #fde68a;
+  --color-primary-8: #fef3c7;
+  --color-primary-9: #fffbeb;
 
   /* dark grey colors */
-  --color-grey-1: hsl(209, 61%, 16%);
-  --color-grey-2: hsl(211, 39%, 23%);
-  --color-grey-3: hsl(209, 34%, 30%);
-  --color-grey-4: hsl(209, 28%, 39%);
+  --color-grey-1: #0f172a;
+  --color-grey-2: #1e293b;
+  --color-grey-3: #334155;
+  --color-grey-4: #475569;
 
   /* light grey colors*/
-  --color-grey-5: hsl(210, 22%, 49%);
-  --color-grey-6: hsl(209, 23%, 60%);
-  --color-grey-7: hsl(211, 27%, 70%);
-  --color-grey-8: hsl(210, 31%, 80%);
-  --color-grey-9: hsl(212, 33%, 89%);
-  --color-grey-10: hsl(210, 36%, 96%);
+  --color-grey-5: #64748b;
+  --color-grey-6: #94a3b8;
+  --color-grey-7: #cbd5e1;
+  --color-grey-8: #e2e8f0;
+  --color-grey-9: #f1f5f9;
+  --color-grey-10: #f8fafc;
 
   --transition: all 0.3s linear;
-  --spacing: 0.3rem;
-  --radius: 0.6rem;
+  --small-spacing: 0.1rem;
+  --medium-spacing: 0.3rem;
+  --radius: 6px;
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   --max-width: 1170px;
@@ -77,17 +77,12 @@ a {
   text-decoration: none;
 }
 
-hr {
-  border: none;
-  border-top: 1px solid var(--color-grey-8);
-}
-
 h1,
 h2,
 h3,
 h4,
 h5 {
-  letter-spacing: var(--spacing);
+  letter-spacing: var(--medium-spacing);
   text-transform: capitalize;
   line-height: 1.25;
 }
@@ -114,8 +109,4 @@ h5 {
 
 h6 {
   font-size: 1.1rem;
-}
-
-p {
-  color: var(--color-grey-3);
 }
