@@ -18,7 +18,7 @@ const ErrorPage = () => {
 const Wrapper = styled.main`
   min-height: calc(100vh - 17rem);
   color: var(--color-grey-1);
-  background: var(--color-primary-9);
+  background: var(--color-grey-8);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,6 +31,7 @@ const Wrapper = styled.main`
   h3 {
     text-transform: none;
     margin-bottom: 3rem;
+    color: var(--color-grey-4);
   }
 `;
 

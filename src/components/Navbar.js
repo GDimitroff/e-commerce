@@ -46,8 +46,7 @@ const NavContainer = styled.nav`
   background-color: #0f172a;
 
   .nav-center {
-    width: 100vw;
-    padding: 0 2rem;
+    width: 90vw;
     margin: 0 auto;
     max-width: var(--max-width);
   }
@@ -87,6 +86,7 @@ const NavContainer = styled.nav`
     }
 
     .nav-center {
+      width: 95vw;
       display: grid;
       grid-template-columns: auto 1fr auto;
       align-items: center;
