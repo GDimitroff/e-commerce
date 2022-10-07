@@ -36,6 +36,8 @@ const Wrapper = styled.section`
   display: grid;
   align-items: center;
   text-align: center;
+  background-color: var(--color-grey-9);
+  padding: 2rem;
 
   .img-container {
     display: none;
@@ -57,6 +59,7 @@ const Wrapper = styled.section`
     grid-template-columns: 2fr 3fr;
     text-align: initial;
     justify-items: end;
+    padding: 5rem;
 
     h1 {
       font-size: 5.2rem;
