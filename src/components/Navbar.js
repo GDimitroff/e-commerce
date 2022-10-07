@@ -86,7 +86,6 @@ const NavContainer = styled.nav`
     }
 
     .nav-center {
-      width: 95vw;
       display: grid;
       grid-template-columns: auto 1fr auto;
       align-items: center;

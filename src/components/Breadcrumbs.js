@@ -26,12 +26,6 @@ const Wrapper = styled.section`
     max-width: var(--max-width);
   }
 
-  @media screen and (min-width: 992px) {
-    .breadcrumbs-container {
-      width: 95vw;
-    }
-  }
-
   p {
     font-size: 1.4rem;
     font-weight: 500;

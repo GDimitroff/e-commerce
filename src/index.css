@@ -122,12 +122,6 @@ h6 {
   margin: 5rem auto;
 }
 
-@media screen and (min-width: 992px) {
-  .section {
-    width: 95vw;
-  }
-}
-
 @keyframes spinner {
   to {
     transform: rotate(360deg);
