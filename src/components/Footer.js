@@ -21,6 +21,7 @@ const Wrapper = styled.footer`
   background: var(--color-grey-1);
 
   span {
+    text-transform: uppercase;
     color: var(--color-primary-5);
   }
 

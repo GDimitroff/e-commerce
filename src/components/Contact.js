@@ -90,7 +90,7 @@ const Wrapper = styled.section`
   }
 
   @media (min-width: 992px) {
-    padding: 5rem 0;
+    padding: 10rem 0;
 
     .content {
       display: grid;
