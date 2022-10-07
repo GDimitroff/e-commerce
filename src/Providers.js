@@ -1,11 +1,14 @@
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import GlobalProvider from './context/GlobalContext';
+import ProductsProvider from './context/ProductsContext';
 
 const Providers = ({ children }) => {
   return (
     <GlobalProvider>
-      <Router>{children}</Router>
+      <ProductsProvider>
+        <Router>{children}</Router>
+      </ProductsProvider>
     </GlobalProvider>
   );
 };
