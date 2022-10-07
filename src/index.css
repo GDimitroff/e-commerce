@@ -40,8 +40,11 @@
   --small-spacing: 0.1rem;
   --medium-spacing: 0.3rem;
   --radius: 3px;
-  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --light-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  --navbar-height: 10rem;
+  --footer-height: 7rem;
+  --breadcrumbs-height: 5rem;
   --max-width: 1170px;
   --fixed-width: 620px;
 }

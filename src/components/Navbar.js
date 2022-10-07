@@ -39,7 +39,7 @@ const Nav = () => {
 };
 
 const NavContainer = styled.nav`
-  height: 10rem;
+  height: var(--navbar-height);
   display: flex;
   align-items: center;
   justify-content: center;

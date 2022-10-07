@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Breadcrumbs = ({ title }) => {
   return (
     <Wrapper>
-      <div className="page-hero">
+      <div className="breadcrumbs-container">
         <p>
           <Link to="/">Home</Link> / {title}
         </p>
@@ -15,19 +15,19 @@ const Breadcrumbs = ({ title }) => {
 
 const Wrapper = styled.section`
   background: var(--color-grey-9);
-  min-height: 5vh;
+  height: var(--breadcrumbs-height);
   display: flex;
   align-items: center;
   color: var(--color-grey-1);
 
-  .page-hero {
+  .breadcrumbs-container {
     width: 90vw;
     margin: 0 auto;
     max-width: var(--max-width);
   }
 
   @media screen and (min-width: 992px) {
-    .page-hero {
+    .breadcrumbs-container {
       width: 95vw;
     }
   }

@@ -42,7 +42,6 @@ const AboutPage = () => {
 };
 
 const Wrapper = styled.section`
-  min-height: calc(100vh - (5vh + 27rem));
   display: grid;
   align-content: center;
   gap: 5rem;
@@ -63,6 +62,14 @@ const Wrapper = styled.section`
 
   @media (min-width: 992px) {
     grid-template-columns: 1fr 1fr;
+    min-height: calc(
+      100vh -
+        (
+          var(--navbar-height) + var(--breadcrumbs-height) +
+            var(--footer-height) + 10rem
+        )
+    );
   }
 `;
+
 export default AboutPage;

@@ -16,7 +16,9 @@ const Sidebar = () => {
       <aside
         className={`${isSidebarOpen ? 'sidebar show-sidebar' : 'sidebar'}`}>
         <div className="sidebar-header">
-          <img src={logo} alt="The Casa Décor" className="logo" />
+          <div className="logo-container">
+            <img src={logo} alt="The Casa Décor" className="logo" />
+          </div>
           <button className="close-btn" type="button" onClick={closeSidebar}>
             <AiOutlineClose />
           </button>
@@ -85,8 +87,13 @@ const SidebarContainer = styled.div`
     color: var(--color-grey-6);
   }
 
+  .logo-container {
+    width: 80vw;
+    margin: 0 auto;
+  }
+
   .logo {
-    height: 50px;
+    width: 100%;
   }
 
   .links {
