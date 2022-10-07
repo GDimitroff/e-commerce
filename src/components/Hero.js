@@ -1,12 +1,16 @@
 import styled from 'styled-components';
+
 import { Link } from 'react-router-dom';
+import mainImage from '../assets/linus-mimietz-unsplash-main-image.jpg';
+import accentImage from '../assets/davide-cantelli-unsplash-accent-image.jpg';
 
 const Hero = () => {
   return (
     <Wrapper className="section">
       <article className="content">
         <h1>
-          design <br />
+          design your
+          <br />
           comfort zone
         </h1>
         <p>
@@ -20,45 +24,46 @@ const Hero = () => {
         </Link>
       </article>
       <article className="img-container">
-        <img
-          src="https://via.placeholder.com/500/ff0000"
-          alt=""
-          className="main-img"
-        />
-        <img
-          src="https://via.placeholder.com/200/ffff00"
-          alt=""
-          className="accent-img"
-        />
+        <img src={mainImage} alt="" className="main-img" />
+        <img src={accentImage} alt="" className="accent-img" />
       </article>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.section`
-  min-height: 60vh;
+  min-height: calc(100vh - (var(--navbar-height) + 10rem));
   display: grid;
-  place-items: center;
-  gap: 3rem;
+  align-items: center;
+  text-align: center;
 
   .img-container {
     display: none;
   }
 
+  h1 {
+    font-size: 4.2rem;
+    line-height: 1.2;
+    margin-bottom: 3rem;
+  }
+
   p {
     line-height: 1.4;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     color: var(--color-grey-5);
   }
 
   @media (min-width: 992px) {
-    height: calc(100vh - 20rem);
-    grid-template-columns: 1fr 1fr;
-    gap: 8rem;
+    grid-template-columns: 2fr 3fr;
+    text-align: initial;
+    justify-items: end;
 
     h1 {
-      line-height: 1.2;
-      margin-bottom: 3rem;
+      font-size: 5.6rem;
+    }
+
+    p {
+      font-size: 1.8rem;
     }
 
     .img-container {
@@ -69,19 +74,23 @@ const Wrapper = styled.section`
     .main-img {
       position: relative;
       display: block;
-      width: 100%;
+      width: 450px;
       height: 500px;
       border-radius: var(--radius);
       object-fit: cover;
+      box-shadow: var(--dark-shadow);
     }
 
     .accent-img {
       position: absolute;
       bottom: 0;
       left: 0;
-      width: 200px;
+      height: 160px;
+      width: 270px;
       transform: translateX(-50%);
       border-radius: var(--radius);
+      object-fit: cover;
+      box-shadow: var(--light-shadow);
     }
 
     .img-container::before {

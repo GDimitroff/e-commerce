@@ -16,7 +16,7 @@ const ErrorPage = () => {
 };
 
 const Wrapper = styled.main`
-  min-height: calc(100vh - 17rem);
+  min-height: calc(100vh - (var(--navbar-height) + var(--footer-height)));
   color: var(--color-grey-1);
   background: var(--color-grey-8);
   display: flex;
