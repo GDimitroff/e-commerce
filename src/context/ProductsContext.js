@@ -38,7 +38,7 @@ const ProductsProvider = ({ children }) => {
   }, []);
 
   return (
-    <ProductsContext.Provider value="products context">
+    <ProductsContext.Provider value={{ ...state }}>
       {children}
     </ProductsContext.Provider>
   );
