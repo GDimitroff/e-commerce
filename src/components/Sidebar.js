@@ -108,7 +108,7 @@ const SidebarContainer = styled.div`
     text-transform: uppercase;
     padding: 1.5rem;
     color: var(--color-grey-6);
-    letter-spacing: var(--medium-spacing);
+    letter-spacing: var(--spacing);
     transition: var(--transition);
   }
 

@@ -8,8 +8,9 @@ const Services = () => {
       <div className="section">
         <article className="header">
           <h3>
-            custom furniture <br />
-            built only for you
+            Change the look of your house,
+            <br />
+            change the perspective of others
           </h3>
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit ipsum
@@ -40,7 +41,7 @@ const Wrapper = styled.section`
   background: var(--color-primary-9);
 
   h3 {
-    color: var(--color-grey-4);
+    color: var(--color-grey-3);
     line-height: 1.1;
   }
 
@@ -55,7 +56,7 @@ const Wrapper = styled.section`
 
   p {
     line-height: 1.2;
-    color: var(--color-grey-6);
+    color: var(--color-grey-4);
   }
 
   .services-center {
@@ -96,6 +97,11 @@ const Wrapper = styled.section`
     .header {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      margin-bottom: 4rem;
+    }
+
+    .header h3 {
+      margin-bottom: 0rem;
     }
   }
 

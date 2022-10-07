@@ -29,7 +29,7 @@ const Wrapper = styled.section`
   p {
     font-size: 1.4rem;
     font-weight: 500;
-    letter-spacing: var(--small-spacing);
+    letter-spacing: var(--spacing);
   }
 
   a {

@@ -100,7 +100,7 @@ const NavContainer = styled.nav`
         color: var(--color-grey-6);
         font-size: 1.6rem;
         text-transform: uppercase;
-        letter-spacing: var(--medium-spacing);
+        letter-spacing: var(--spacing);
         padding: 0.6rem;
         border-bottom: 2px solid transparent;
         transition: var(--transition);

@@ -9,9 +9,9 @@ const Hero = () => {
     <Wrapper className="section">
       <article className="content">
         <h1>
-          design your
+          The Furniture
           <br />
-          comfort zone
+          That Defines <span className="yellow">You</span>
         </h1>
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem
@@ -42,8 +42,8 @@ const Wrapper = styled.section`
   }
 
   h1 {
-    font-size: 4.2rem;
-    line-height: 1.2;
+    font-size: 3.8rem;
+    line-height: 1.1;
     margin-bottom: 3rem;
   }
 
@@ -59,7 +59,7 @@ const Wrapper = styled.section`
     justify-items: end;
 
     h1 {
-      font-size: 5.6rem;
+      font-size: 5.2rem;
     }
 
     p {

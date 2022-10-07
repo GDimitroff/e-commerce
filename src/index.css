@@ -37,8 +37,7 @@
   --color-grey-10: #f8fafc;
 
   --transition: all 0.3s ease-in-out;
-  --small-spacing: 0.1rem;
-  --medium-spacing: 0.3rem;
+  --spacing: 2px;
   --radius: 3px;
   --light-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -84,8 +83,7 @@ h2,
 h3,
 h4,
 h5 {
-  letter-spacing: var(--medium-spacing);
-  text-transform: capitalize;
+  letter-spacing: var(--spacing);
   line-height: 1.25;
 }
 
@@ -131,8 +129,9 @@ h6 {
   display: inline-block;
   font-size: 1.4rem;
   font-weight: 400;
+  font-family: inherit;
   text-transform: uppercase;
-  letter-spacing: var(--small-spacing);
+  letter-spacing: var(--spacing);
   padding: 0.6rem 1.6rem;
   color: var(--color-primary-9);
   background: var(--color-grey-1);
@@ -154,4 +153,8 @@ h6 {
   margin-top: 0.6rem;
   height: 0.4rem;
   background: var(--color-primary-5);
+}
+
+.yellow {
+  color: var(--color-primary-5);
 }
