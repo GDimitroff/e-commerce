@@ -25,6 +25,10 @@ const ProductImages = ({ images }) => {
 };
 
 const Wrapper = styled.section`
+  .main {
+    height: 500px;
+  }
+
   img {
     width: 100%;
     display: block;
