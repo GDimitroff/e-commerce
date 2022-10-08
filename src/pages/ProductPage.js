@@ -37,7 +37,12 @@ const ProductPage = () => {
   }, [error, navigate]);
 
   if (loading) {
-    return <Loading />;
+    return (
+      <Wrapper>
+        <Breadcrumbs product />
+        <Loading />
+      </Wrapper>
+    );
   }
 
   if (error) {

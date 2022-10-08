@@ -13,11 +13,11 @@ import {
 } from '../actions';
 
 const initialState = {
-  productsLoading: false,
+  productsLoading: true,
   productsError: false,
   products: [],
   featuredProducts: [],
-  productLoading: false,
+  productLoading: true,
   productError: false,
   product: {},
 };
