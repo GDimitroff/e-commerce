@@ -90,7 +90,7 @@ const ProductPage = () => {
               {company}
             </p>
             <hr />
-            {stock > 0 && <AddToCart />}
+            {stock > 0 && <AddToCart product={product} />}
           </section>
         </div>
       </div>
@@ -127,7 +127,7 @@ const Wrapper = styled.main`
 
   .desc {
     font-size: 1.4rem;
-    line-height: 1.5;
+    line-height: 1.8;
     margin: 1rem 0;
   }
 
@@ -135,10 +135,10 @@ const Wrapper = styled.main`
     font-size: 1.4rem;
     text-transform: capitalize;
     display: flex;
-    gap: 8px;
 
     span {
       font-weight: 700;
+      min-width: 100px;
     }
   }
 
