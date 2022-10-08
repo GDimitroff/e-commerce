@@ -38,6 +38,7 @@ const Wrapper = styled.section`
   text-align: center;
   background-color: var(--color-grey-9);
   padding: 2rem;
+  border-radius: var(--radius);
 
   .img-container {
     display: none;
