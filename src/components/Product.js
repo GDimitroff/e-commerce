@@ -81,7 +81,7 @@ const Wrapper = styled.article`
   footer p {
     font-weight: 700;
     letter-spacing: var(--spacing);
-    color: var(--color-primary-5);
+    color: var(--color-primary-1);
   }
 `;
 

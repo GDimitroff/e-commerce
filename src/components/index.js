@@ -9,7 +9,7 @@ import Contact from './Contact';
 import Loading from './Loading';
 import Error from './Error';
 import ProductImages from './ProductImages';
-import Stars from './Stars';
+import Rating from './Rating';
 import AddToCart from './AddToCart';
 
 export {
@@ -24,6 +24,6 @@ export {
   Loading,
   Error,
   ProductImages,
-  Stars,
+  Rating,
   AddToCart,
 };

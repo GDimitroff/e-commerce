@@ -9,7 +9,7 @@ import {
   Loading,
   Error,
   ProductImages,
-  Stars,
+  Rating,
   Breadcrumbs,
   AddToCart,
 } from '../components';
@@ -74,7 +74,7 @@ const ProductPage = () => {
           <ProductImages images={images} />
           <section className="content">
             <h2>{name}</h2>
-            <Stars />
+            <Rating stars={stars} reviews={reviews} />
             <h5 className="price">{formatPrice(price)}</h5>
             <p className="desc">{description}</p>
             <p className="info">
@@ -101,6 +101,7 @@ const ProductPage = () => {
 const Wrapper = styled.main`
   h2 {
     text-transform: capitalize;
+    margin-bottom: 0.6rem;
   }
 
   .section {
@@ -120,17 +121,21 @@ const Wrapper = styled.main`
   }
 
   .price {
-    color: var(--color-primary-5);
+    color: var(--color-primary-1);
+    font-size: 1.6rem;
   }
 
   .desc {
+    font-size: 1.4rem;
     line-height: 1.5;
+    margin: 1rem 0;
   }
 
   .info {
+    font-size: 1.4rem;
     text-transform: capitalize;
     display: flex;
-    gap: 18px;
+    gap: 8px;
 
     span {
       font-weight: 700;
@@ -140,10 +145,6 @@ const Wrapper = styled.main`
   @media (min-width: 992px) {
     .product-center {
       grid-template-columns: 1fr 1fr;
-    }
-
-    .price {
-      font-size: 1.6rem;
     }
   }
 `;
