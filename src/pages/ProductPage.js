@@ -25,15 +25,15 @@ const ProductPage = () => {
   } = useProductsContext();
 
   useEffect(() => {
-    fetchProduct(`${URL}${id}ss`);
+    fetchProduct(`${URL}${id}`);
   }, [id]);
 
   useEffect(() => {
-    // if (error) {
-    //   setTimeout(() => {
-    //     navigate('/');
-    //   }, 3000);
-    // }
+    if (error) {
+      setTimeout(() => {
+        navigate('/');
+      }, 3000);
+    }
   }, [error, navigate]);
 
   if (loading) {
@@ -99,6 +99,10 @@ const ProductPage = () => {
 };
 
 const Wrapper = styled.main`
+  h2 {
+    text-transform: capitalize;
+  }
+
   .section {
     min-height: calc(
       100vh -
@@ -111,7 +115,7 @@ const Wrapper = styled.main`
 
   .product-center {
     display: grid;
-    gap: 4rem;
+    gap: 3rem;
     margin-top: 2rem;
   }
 
@@ -136,7 +140,6 @@ const Wrapper = styled.main`
   @media (min-width: 992px) {
     .product-center {
       grid-template-columns: 1fr 1fr;
-      align-items: center;
     }
 
     .price {
