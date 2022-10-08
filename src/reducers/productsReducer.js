@@ -2,6 +2,9 @@ import {
   GET_PRODUCTS_LOADING,
   GET_PRODUCTS_SUCCESS,
   GET_PRODUCTS_ERROR,
+  GET_PRODUCT_LOADING,
+  GET_PRODUCT_SUCCESS,
+  GET_PRODUCT_ERROR,
 } from '../actions';
 
 const productsReducer = (state, action) => {
@@ -26,6 +29,23 @@ const productsReducer = (state, action) => {
     }
     case GET_PRODUCTS_ERROR: {
       return { ...state, productsLoading: false, productsError: true };
+    }
+    case GET_PRODUCT_LOADING: {
+      return {
+        ...state,
+        productLoading: true,
+        productError: false,
+      };
+    }
+    case GET_PRODUCT_SUCCESS: {
+      return {
+        ...state,
+        productLoading: false,
+        product: action.payload,
+      };
+    }
+    case GET_PRODUCT_ERROR: {
+      return { ...state, productLoading: false, productError: true };
     }
     default: {
       throw new Error(`No matching action type: "${action.type}"`);

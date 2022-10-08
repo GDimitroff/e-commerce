@@ -7,6 +7,9 @@ import {
   GET_PRODUCTS_LOADING,
   GET_PRODUCTS_SUCCESS,
   GET_PRODUCTS_ERROR,
+  GET_PRODUCT_LOADING,
+  GET_PRODUCT_SUCCESS,
+  GET_PRODUCT_ERROR,
 } from '../actions';
 
 const initialState = {
@@ -14,6 +17,9 @@ const initialState = {
   productsError: false,
   products: [],
   featuredProducts: [],
+  productLoading: false,
+  productError: false,
+  product: {},
 };
 
 const ProductsContext = React.createContext();
@@ -30,6 +36,18 @@ const ProductsProvider = ({ children }) => {
       dispatch({ type: GET_PRODUCTS_SUCCESS, payload: products });
     } catch (error) {
       dispatch({ type: GET_PRODUCTS_ERROR });
+    }
+  };
+
+  const fetchSingleProduct = async (url) => {
+    dispatch({ type: GET_PRODUCT_LOADING });
+
+    try {
+      const response = await axios(url);
+      const product = response.data;
+      dispatch({ type: GET_PRODUCT_SUCCESS, payload: product });
+    } catch (error) {
+      dispatch({ type: GET_PRODUCT_ERROR });
     }
   };
 
