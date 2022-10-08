@@ -11,6 +11,9 @@ import Error from './Error';
 import ProductImages from './ProductImages';
 import Rating from './Rating';
 import AddToCart from './AddToCart';
+import Filters from './Filters';
+import Sort from './Sort';
+import ProductList from './ProductList';
 
 export {
   Navbar,
@@ -26,4 +29,7 @@ export {
   ProductImages,
   Rating,
   AddToCart,
+  Filters,
+  Sort,
+  ProductList,
 };

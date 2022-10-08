@@ -74,11 +74,12 @@ const Wrapper = styled.article`
   }
 
   footer h5 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     text-transform: capitalize;
   }
 
   footer p {
+    font-size: 1.4rem;
     font-weight: 700;
     letter-spacing: var(--spacing);
     color: var(--color-primary-1);

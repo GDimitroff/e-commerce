@@ -19,7 +19,9 @@ const FilterProvider = ({ children }) => {
   }, [products]);
 
   return (
-    <FilterContext.Provider value={state}>{children}</FilterContext.Provider>
+    <FilterContext.Provider value={{ ...state }}>
+      {children}
+    </FilterContext.Provider>
   );
 };
 
