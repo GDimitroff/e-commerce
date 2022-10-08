@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const Breadcrumbs = ({ title }) => {
+const Breadcrumbs = ({ title, product }) => {
   return (
     <Wrapper>
       <div className="breadcrumbs-container">
         <p>
-          <Link to="/">Home</Link> / {title}
+          <Link to="/">Home</Link>
+          {product && <Link to="/products">/ Products</Link>}/ {title}
         </p>
       </div>
     </Wrapper>
@@ -30,6 +31,7 @@ const Wrapper = styled.section`
     font-size: 1.4rem;
     font-weight: 500;
     letter-spacing: var(--spacing);
+    text-transform: capitalize;
   }
 
   a {

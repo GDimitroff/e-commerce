@@ -39,7 +39,7 @@ const ProductsProvider = ({ children }) => {
     }
   };
 
-  const fetchSingleProduct = async (url) => {
+  const fetchProduct = async (url) => {
     dispatch({ type: GET_PRODUCT_LOADING });
 
     try {
@@ -56,7 +56,7 @@ const ProductsProvider = ({ children }) => {
   }, []);
 
   return (
-    <ProductsContext.Provider value={{ ...state }}>
+    <ProductsContext.Provider value={{ ...state, fetchProduct }}>
       {children}
     </ProductsContext.Provider>
   );
