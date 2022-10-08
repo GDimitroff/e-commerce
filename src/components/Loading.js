@@ -9,9 +9,6 @@ const Loading = () => {
 };
 
 const Wrapper = styled.div`
-  display: grid;
-  place-items: center;
-
   .loading {
     width: 8rem;
     height: 8rem;

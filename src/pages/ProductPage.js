@@ -25,28 +25,31 @@ const ProductPage = () => {
   } = useProductsContext();
 
   useEffect(() => {
-    fetchProduct(`${URL}${id}`);
+    fetchProduct(`${URL}${id}ss`);
   }, [id]);
 
   useEffect(() => {
-    if (error) {
-      setTimeout(() => {
-        navigate('/');
-      }, 3000);
-    }
+    // if (error) {
+    //   setTimeout(() => {
+    //     navigate('/');
+    //   }, 3000);
+    // }
   }, [error, navigate]);
 
   if (loading) {
     return (
-      <Wrapper>
-        <Breadcrumbs product />
+      <FullPageWrapper>
         <Loading />
-      </Wrapper>
+      </FullPageWrapper>
     );
   }
 
   if (error) {
-    return <Error />;
+    return (
+      <FullPageWrapper>
+        <Error />
+      </FullPageWrapper>
+    );
   }
 
   const {
@@ -68,7 +71,7 @@ const ProductPage = () => {
           back to products
         </Link>
         <div className="product-center">
-          <ProductImages />
+          <ProductImages images={images} />
           <section className="content">
             <h2>{name}</h2>
             <Stars />
@@ -105,6 +108,7 @@ const Wrapper = styled.main`
         )
     );
   }
+
   .product-center {
     display: grid;
     gap: 4rem;
@@ -139,6 +143,12 @@ const Wrapper = styled.main`
       font-size: 1.6rem;
     }
   }
+`;
+
+const FullPageWrapper = styled.div`
+  min-height: calc(100vh - (var(--navbar-height) + var(--footer-height)));
+  display: grid;
+  place-items: center;
 `;
 
 export default ProductPage;
