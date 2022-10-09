@@ -4,6 +4,8 @@ import {
   SET_LISTVIEW,
   UPDATE_SORT,
   SORT_PRODUCTS,
+  UPDATE_FILTERS,
+  FILTER_PRODUCTS,
 } from '../actions';
 
 const filterReducer = (state, action) => {
@@ -62,6 +64,19 @@ const filterReducer = (state, action) => {
       }
 
       return { ...state, filteredProducts: sortedProducts };
+    }
+    case UPDATE_FILTERS: {
+      const { name, value } = action.payload;
+
+      return {
+        ...state,
+        filters: { ...state.filters, [name]: value },
+      };
+    }
+    case FILTER_PRODUCTS: {
+      //TODO:
+      console.log('filtering products');
+      return { ...state };
     }
     default: {
       throw new Error(`No matching action type: "${action.type}"`);

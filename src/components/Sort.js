@@ -56,6 +56,10 @@ const Wrapper = styled.section`
   margin-bottom: 2rem;
   column-gap: 2rem;
 
+  hr {
+    margin: 1rem 0;
+  }
+
   .btn-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
