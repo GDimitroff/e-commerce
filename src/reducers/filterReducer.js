@@ -1,4 +1,10 @@
-import { LOAD_PRODUCTS, SET_GRIDVIEW, SET_LISTVIEW } from '../actions';
+import {
+  LOAD_PRODUCTS,
+  SET_GRIDVIEW,
+  SET_LISTVIEW,
+  UPDATE_SORT,
+  SORT_PRODUCTS,
+} from '../actions';
 
 const filterReducer = (state, action) => {
   switch (action.type) {
@@ -20,6 +26,38 @@ const filterReducer = (state, action) => {
         ...state,
         gridView: false,
       };
+    }
+    case UPDATE_SORT: {
+      return {
+        ...state,
+        sort: action.payload,
+      };
+    }
+    case SORT_PRODUCTS: {
+      const { sort, filteredProducts } = state;
+      let sortedProducts = [...filteredProducts];
+
+      if (sort === 'price-lowest') {
+        sortedProducts = sortedProducts.sort((a, b) => a.price - b.price);
+      }
+
+      if (sort === 'price-highest') {
+        sortedProducts = sortedProducts.sort((a, b) => b.price - a.price);
+      }
+
+      if (sort === 'name-a') {
+        sortedProducts = sortedProducts.sort((a, b) =>
+          a.name.localeCompare(b.name)
+        );
+      }
+
+      if (sort === 'name-z') {
+        sortedProducts = sortedProducts.sort((a, b) =>
+          b.name.localeCompare(a.name)
+        );
+      }
+
+      return { ...state, filteredProducts: sortedProducts };
     }
     default: {
       throw new Error(`No matching action type: "${action.type}"`);
