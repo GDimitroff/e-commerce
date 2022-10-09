@@ -34,7 +34,7 @@ const Wrapper = styled.footer`
     line-height: 1.25;
   }
 
-  @media (min-width: 776px) {
+  @media (min-width: 768px) {
     flex-direction: row;
   }
 `;

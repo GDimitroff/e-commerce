@@ -6,6 +6,7 @@ import { LOAD_PRODUCTS } from '../actions';
 const initialState = {
   allProducts: [],
   filteredProducts: [],
+  gridView: true,
 };
 
 const FilterContext = React.createContext();
