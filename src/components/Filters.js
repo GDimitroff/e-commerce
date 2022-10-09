@@ -39,6 +39,25 @@ const Filters = () => {
               onChange={updateFilters}
             />
           </div>
+          <div className="form-control">
+            <h5>Category</h5>
+            <div>
+              {categories.map((c, index) => {
+                return (
+                  <button
+                    className={`${
+                      category === c.toLowerCase() ? 'active' : ''
+                    }`}
+                    key={index}
+                    onClick={updateFilters}
+                    name="category"
+                    type="button">
+                    {c}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
         </form>
       </div>
     </Wrapper>
@@ -63,6 +82,7 @@ const Wrapper = styled.section`
   }
 
   button {
+    font-family: inherit;
     display: block;
     margin: 0.25em 0;
     padding: 0.25rem 0;

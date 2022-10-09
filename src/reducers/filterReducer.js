@@ -75,7 +75,6 @@ const filterReducer = (state, action) => {
     }
     case FILTER_PRODUCTS: {
       //TODO:
-      console.log('filtering products');
       return { ...state };
     }
     default: {
