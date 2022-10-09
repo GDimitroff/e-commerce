@@ -1,4 +1,4 @@
-import { LOAD_PRODUCTS } from '../actions';
+import { LOAD_PRODUCTS, SET_GRIDVIEW, SET_LISTVIEW } from '../actions';
 
 const filterReducer = (state, action) => {
   switch (action.type) {
@@ -7,6 +7,18 @@ const filterReducer = (state, action) => {
         ...state,
         allProducts: [...action.payload],
         filteredProducts: [...action.payload],
+      };
+    }
+    case SET_GRIDVIEW: {
+      return {
+        ...state,
+        gridView: true,
+      };
+    }
+    case SET_LISTVIEW: {
+      return {
+        ...state,
+        gridView: false,
       };
     }
     default: {
