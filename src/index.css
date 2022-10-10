@@ -68,6 +68,16 @@ body {
   line-height: 1.5;
   color: var(--color-grey-1);
   background: var(--color-white);
+
+  /* Hide scrollbar but still be able to scroll */
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
 ul {
