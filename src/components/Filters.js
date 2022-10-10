@@ -29,6 +29,7 @@ const Filters = () => {
     <Wrapper>
       <div className="content">
         <form onSubmit={(e) => e.preventDefault()}>
+          {/* search */}
           <div className="form-control">
             <input
               type="text"
@@ -39,6 +40,7 @@ const Filters = () => {
               onChange={updateFilters}
             />
           </div>
+          {/* categories */}
           <div className="form-control">
             <h5>Category</h5>
             <div>
@@ -57,6 +59,24 @@ const Filters = () => {
                 );
               })}
             </div>
+          </div>
+          {/* companies */}
+          <div className="form-control">
+            <h5>Company</h5>
+            <select
+              name="company"
+              id="company"
+              value={company}
+              onChange={updateFilters}
+              className="company">
+              {companies.map((c, index) => {
+                return (
+                  <option value={c} key={index}>
+                    {c}
+                  </option>
+                );
+              })}
+            </select>
           </div>
         </form>
       </div>
@@ -100,10 +120,11 @@ const Wrapper = styled.section`
   }
 
   .company {
-    background: var(--color-grey-10);
+    font-family: inherit;
+    background: var(--color-grey-9);
     border-radius: var(--radius);
     border-color: transparent;
-    padding: 0.25rem;
+    padding: 0.4rem;
   }
 
   .colors {
