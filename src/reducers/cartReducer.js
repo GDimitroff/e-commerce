@@ -10,10 +10,10 @@ const cartReducer = (state, action) => {
   switch (action.type) {
     case ADD_TO_CART: {
       const { id, color, amount, product } = action.payload;
-      const existingGroupItems = state.cart.find((item) => item.id === id);
+      const existingProduct = state.cart.find((item) => item.id === id);
 
-      if (existingGroupItems) {
-        const existingItem = state.cart.find(
+      if (existingProduct) {
+        const existingProductColor = state.cart.find(
           (item) => item.uniqueId === id + color
         );
 
@@ -26,19 +26,19 @@ const cartReducer = (state, action) => {
         }, 0);
 
         let newCart;
-        if (existingItem) {
-          const availableSpace =
-            product.stock - (totalAmountInCart - existingItem.amount);
+        if (existingProductColor) {
+          const availableQuantity =
+            product.stock - (totalAmountInCart - existingProductColor.amount);
 
-          if (availableSpace === 0) {
+          if (availableQuantity === 0) {
             return { ...state };
           }
 
           newCart = state.cart.map((item) => {
             if (item.uniqueId === id + color) {
               let newAmount = item.amount + amount;
-              if (newAmount > availableSpace) {
-                newAmount = availableSpace;
+              if (newAmount > availableQuantity) {
+                newAmount = availableQuantity;
               }
 
               return { ...item, amount: newAmount };
@@ -47,15 +47,15 @@ const cartReducer = (state, action) => {
             }
           });
         } else {
-          const availableSpace = product.stock - totalAmountInCart;
+          const availableQuantity = product.stock - totalAmountInCart;
           let newAmount = amount;
 
-          if (availableSpace === 0) {
+          if (availableQuantity === 0) {
             return { ...state };
           }
 
-          if (newAmount > availableSpace) {
-            newAmount = availableSpace;
+          if (newAmount > availableQuantity) {
+            newAmount = availableQuantity;
           }
 
           let newItem = {
