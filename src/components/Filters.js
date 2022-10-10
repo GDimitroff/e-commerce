@@ -78,6 +78,42 @@ const Filters = () => {
               })}
             </select>
           </div>
+          {/* colors */}
+          <div className="form-control">
+            <h5>Colors</h5>
+            <div className="colors">
+              {colors.map((c, index) => {
+                if (c === 'all') {
+                  return (
+                    <button
+                      key={index}
+                      name="color"
+                      onClick={updateFilters}
+                      data-color="all"
+                      className={`${
+                        color === 'all' ? 'all-btn active' : 'all-btn'
+                      }`}>
+                      All
+                    </button>
+                  );
+                }
+
+                return (
+                  <button
+                    key={index}
+                    name="color"
+                    style={{ background: c }}
+                    className={`${
+                      color === c ? 'color-btn active' : 'color-btn'
+                    }`}
+                    data-color={c}
+                    onClick={updateFilters}>
+                    {color === c && <FaCheck />}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
         </form>
       </div>
     </Wrapper>
@@ -133,22 +169,21 @@ const Wrapper = styled.section`
   }
 
   .color-btn {
-    display: inline-block;
-    width: 1rem;
-    height: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.8rem;
+    height: 1.8rem;
     border-radius: 50%;
     background: #222;
     margin-right: 0.5rem;
     border: none;
-    cursor: pointer;
     opacity: 0.5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    cursor: pointer;
 
     svg {
-      font-size: 0.5rem;
-      color: var(--color-white);
+      font-size: 1rem;
+      color: var(--color-grey-9);
     }
   }
 
