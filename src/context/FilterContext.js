@@ -9,6 +9,7 @@ import {
   UPDATE_FILTERS,
   UPDATE_SORT,
   FILTER_PRODUCTS,
+  CLEAR_FILTERS,
 } from '../actions';
 
 const initialState = {
@@ -78,7 +79,9 @@ const FilterProvider = ({ children }) => {
     dispatch({ type: UPDATE_FILTERS, payload: { name, value } });
   };
 
-  const clearFilters = () => {};
+  const clearFilters = () => {
+    dispatch({ type: CLEAR_FILTERS });
+  };
 
   return (
     <FilterContext.Provider

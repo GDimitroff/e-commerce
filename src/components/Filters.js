@@ -140,6 +140,9 @@ const Filters = () => {
             />
           </div>
         </form>
+        <button type="button" className="clear-btn" onClick={clearFilters}>
+          Clear Filters
+        </button>
       </div>
     </Wrapper>
   );
@@ -244,9 +247,10 @@ const Wrapper = styled.section`
   }
 
   .clear-btn {
+    text-transform: uppercase;
     background: var(--color-red-dark);
     color: var(--color-white);
-    padding: 0.25rem 0.5rem;
+    padding: 0.4rem 0.8rem;
     border-radius: var(--radius);
   }
 

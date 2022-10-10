@@ -6,6 +6,7 @@ import {
   SORT_PRODUCTS,
   UPDATE_FILTERS,
   FILTER_PRODUCTS,
+  CLEAR_FILTERS,
 } from '../actions';
 
 const filterReducer = (state, action) => {
@@ -18,7 +19,7 @@ const filterReducer = (state, action) => {
         ...state,
         allProducts: [...action.payload],
         filteredProducts: [...action.payload],
-        filters: { ...state.filters, maxPrice },
+        filters: { ...state.filters, price: maxPrice, maxPrice },
       };
     }
     case SET_GRIDVIEW: {
@@ -76,6 +77,20 @@ const filterReducer = (state, action) => {
     case FILTER_PRODUCTS: {
       //TODO:
       return { ...state };
+    }
+    case CLEAR_FILTERS: {
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          text: '',
+          company: 'all',
+          category: 'all',
+          color: 'all',
+          price: state.filters.maxPrice,
+          shipping: false,
+        },
+      };
     }
     default: {
       throw new Error(`No matching action type: "${action.type}"`);
