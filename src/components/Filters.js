@@ -204,7 +204,7 @@ const Wrapper = styled.section`
     height: 1.8rem;
     border-radius: 50%;
     background: #222;
-    margin-right: 0.5rem;
+    margin-right: 0.8rem;
     border: none;
     opacity: 0.5;
     cursor: pointer;
@@ -219,7 +219,7 @@ const Wrapper = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 0.5rem;
+    margin-right: 0.8rem;
     opacity: 0.5;
   }
 
@@ -233,7 +233,7 @@ const Wrapper = styled.section`
 
   .price {
     font-size: 1.6rem;
-    margin: 0.6rem 0;
+    margin: 0.4rem 0;
   }
 
   .shipping {
