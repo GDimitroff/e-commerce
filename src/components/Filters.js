@@ -128,6 +128,17 @@ const Filters = () => {
               value={price}
             />
           </div>
+          {/* shipping */}
+          <div className="form-control shipping">
+            <label htmlFor="shipping">Free Shipping</label>
+            <input
+              type="checkbox"
+              name="shipping"
+              id="shipping"
+              onChange={updateFilters}
+              checked={shipping}
+            />
+          </div>
         </form>
       </div>
     </Wrapper>
@@ -219,16 +230,17 @@ const Wrapper = styled.section`
 
   .price {
     font-size: 1.6rem;
+    margin: 0.6rem 0;
   }
 
   .shipping {
+    max-width: 180px;
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: center;
-    text-transform: capitalize;
-    column-gap: 0.5rem;
-    font-size: 1rem;
-    max-width: 200px;
+    font-size: 1.4rem;
+    color: var(--color-grey-5);
+    letter-spacing: var(--spacing);
   }
 
   .clear-btn {
