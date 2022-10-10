@@ -42,7 +42,7 @@ const Filters = () => {
           </div>
           {/* categories */}
           <div className="form-control">
-            <h5>Category</h5>
+            <h4>Category</h4>
             <div>
               {categories.map((c, index) => {
                 return (
@@ -62,7 +62,7 @@ const Filters = () => {
           </div>
           {/* companies */}
           <div className="form-control">
-            <h5>Company</h5>
+            <h4>Company</h4>
             <select
               name="company"
               id="company"
@@ -80,7 +80,7 @@ const Filters = () => {
           </div>
           {/* colors */}
           <div className="form-control">
-            <h5>Colors</h5>
+            <h4>Colors</h4>
             <div className="colors">
               {colors.map((c, index) => {
                 if (c === 'all') {
@@ -114,6 +114,20 @@ const Filters = () => {
               })}
             </div>
           </div>
+          {/* price */}
+          <div className="form-control">
+            <h4>Price</h4>
+            <p className="price">{formatPrice(price)}</p>
+            <input
+              type="range"
+              name="price"
+              id="price"
+              onChange={updateFilters}
+              min={minPrice}
+              max={maxPrice}
+              value={price}
+            />
+          </div>
         </form>
       </div>
     </Wrapper>
@@ -122,10 +136,10 @@ const Filters = () => {
 
 const Wrapper = styled.section`
   .form-control {
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.8rem;
 
-    h5 {
-      margin-bottom: 0.5rem;
+    h4 {
+      margin-bottom: 0.4rem;
     }
   }
 
@@ -204,7 +218,7 @@ const Wrapper = styled.section`
   }
 
   .price {
-    margin-bottom: 0.25rem;
+    font-size: 1.6rem;
   }
 
   .shipping {
@@ -227,7 +241,7 @@ const Wrapper = styled.section`
   @media (min-width: 768px) {
     .content {
       position: sticky;
-      top: 1rem;
+      top: 2rem;
     }
   }
 `;
