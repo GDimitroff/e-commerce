@@ -31,9 +31,9 @@ const CartTotals = () => {
 };
 
 const Wrapper = styled.section`
-  margin-top: 3rem;
   display: flex;
   justify-content: center;
+  margin-top: 3rem;
 
   article {
     border: 1px solid var(--color-grey-8);
@@ -42,14 +42,17 @@ const Wrapper = styled.section`
   }
 
   h5 {
-    color: var(--color-grey-4);
     display: grid;
-    grid-template-columns: 140px 1fr;
+    grid-template-columns: 120px 1fr;
+    color: var(--color-grey-4);
   }
 
   @media (min-width: 768px) {
-    grid-template-columns: 200px 1fr;
     justify-content: flex-end;
+
+    h5 {
+      grid-template-columns: 200px 1fr;
+    }
   }
 
   .btn {

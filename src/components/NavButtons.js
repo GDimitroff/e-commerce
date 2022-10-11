@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import { useGlobalContext } from '../context/GlobalContext';
+import { useCartContext } from '../context/CartContext';
 
 import {
   AiOutlineShoppingCart,
@@ -11,6 +12,7 @@ import {
 
 const NavButtons = () => {
   const { closeSidebar } = useGlobalContext();
+  const { totalItems } = useCartContext();
 
   return (
     <Wrapper className="nav-buttons-wrapper">
@@ -18,7 +20,7 @@ const NavButtons = () => {
         Cart
         <span className="cart-container">
           <AiOutlineShoppingCart />
-          <span className="cart-value">12</span>
+          <span className="cart-value">{totalItems}</span>
         </span>
       </Link>
       <button type="button" className="auth-btn">
