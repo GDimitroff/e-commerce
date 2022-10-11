@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+import { useAuthState, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { auth } from '../firebase';
 import { useGlobalContext } from '../context/GlobalContext';
 import { useCartContext } from '../context/CartContext';
 
@@ -11,6 +13,8 @@ import {
 } from 'react-icons/ai';
 
 const NavButtons = () => {
+  const [user, loading] = useAuthState(auth);
+  const [signInWithGoogle] = useSignInWithGoogle(auth);
   const { closeSidebar } = useGlobalContext();
   const { totalItems } = useCartContext();
 
@@ -23,7 +27,10 @@ const NavButtons = () => {
           <span className="cart-value">{totalItems}</span>
         </span>
       </Link>
-      <button type="button" className="auth-btn">
+      <button
+        type="button"
+        className="auth-btn"
+        onClick={() => signInWithGoogle()}>
         Login <AiOutlineUserAdd />
       </button>
     </Wrapper>
