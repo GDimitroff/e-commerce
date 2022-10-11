@@ -32,6 +32,13 @@ const Wrapper = styled.section`
   .link-container {
     display: flex;
     justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
