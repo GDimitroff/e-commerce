@@ -140,7 +140,10 @@ const Filters = () => {
             />
           </div>
         </form>
-        <button type="button" className="clear-btn" onClick={clearFilters}>
+        <button
+          type="button"
+          className="btn btn-danger btn-clear"
+          onClick={clearFilters}>
           Clear Filters
         </button>
       </div>
@@ -246,12 +249,18 @@ const Wrapper = styled.section`
     letter-spacing: var(--spacing);
   }
 
-  .clear-btn {
+  .btn-clear {
+    font-size: 1.2rem;
     text-transform: uppercase;
-    background: var(--color-red-dark);
+    padding: 0.8rem 1.8rem;
     color: var(--color-white);
-    padding: 0.4rem 0.8rem;
+    background: var(--color-red-dark);
     border-radius: var(--radius);
+  }
+
+  .btn-clear:hover,
+  .btn-clear:active {
+    background: var(--color-red-light);
   }
 
   @media (min-width: 768px) {
