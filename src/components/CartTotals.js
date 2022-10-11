@@ -44,10 +44,11 @@ const Wrapper = styled.section`
   h5 {
     color: var(--color-grey-4);
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 140px 1fr;
   }
 
-  @media (min-width: 776px) {
+  @media (min-width: 768px) {
+    grid-template-columns: 200px 1fr;
     justify-content: flex-end;
   }
 

@@ -28,6 +28,7 @@ const CartContent = () => {
     </Wrapper>
   );
 };
+
 const Wrapper = styled.section`
   .link-container {
     display: flex;

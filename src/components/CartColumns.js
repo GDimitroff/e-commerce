@@ -23,11 +23,12 @@ const Wrapper = styled.div`
 
     .content {
       display: grid;
-      grid-template-columns: 316px 1fr 1fr 1fr auto;
+      grid-template-columns: 300px 1fr 1fr 1fr auto;
       justify-items: center;
       column-gap: 1rem;
 
       h5 {
+        font-size: 1.4rem;
         font-weight: 400;
         text-transform: capitalize;
         color: var(--color-grey-5);
