@@ -32,7 +32,7 @@ const CartItem = ({ id, uniqueId, image, name, color, price, amount }) => {
       <button
         type="button"
         className="btn-remove"
-        onClick={() => removeItem(id)}>
+        onClick={() => removeItem(uniqueId)}>
         <FaTrash />
       </button>
     </Wrapper>

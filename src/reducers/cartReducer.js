@@ -93,7 +93,10 @@ const cartReducer = (state, action) => {
       }
     }
     case REMOVE_CART_ITEM: {
-      const newCart = state.cart.filter((item) => item.id !== action.payload);
+      const newCart = state.cart.filter(
+        (item) => item.uniqueId !== action.payload
+      );
+
       return { ...state, cart: newCart };
     }
     case INCREASE_CART_ITEM: {

@@ -33,8 +33,8 @@ const CartProvider = ({ children }) => {
     dispatch({ type: ADD_TO_CART, payload: { id, color, amount, product } });
   };
 
-  const removeItem = (id) => {
-    dispatch({ type: REMOVE_CART_ITEM, payload: id });
+  const removeItem = (uniqueId) => {
+    dispatch({ type: REMOVE_CART_ITEM, payload: uniqueId });
   };
 
   const increaseAmount = (id, uniqueId) => {
