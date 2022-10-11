@@ -3,9 +3,9 @@ import cartReducer from '../reducers/cartReducer';
 import {
   ADD_TO_CART,
   REMOVE_CART_ITEM,
-  TOGGLE_CART_ITEM_AMOUNT,
-  CLEAR_CART,
+  INCREASE_CART_ITEM,
   COUNT_CART_TOTALS,
+  CLEAR_CART,
 } from '../actions';
 
 const getLocalStorage = () => {
@@ -37,7 +37,9 @@ const CartProvider = ({ children }) => {
     dispatch({ type: REMOVE_CART_ITEM, payload: id });
   };
 
-  const toggleAmount = (id, value) => {};
+  const increaseAmount = (id, uniqueId) => {
+    dispatch({ type: INCREASE_CART_ITEM, payload: { id, uniqueId } });
+  };
 
   const clearCart = () => {
     dispatch({ type: CLEAR_CART });
@@ -49,7 +51,13 @@ const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ ...state, addToCart, removeItem, toggleAmount, clearCart }}>
+      value={{
+        ...state,
+        addToCart,
+        removeItem,
+        increaseAmount,
+        clearCart,
+      }}>
       {children}
     </CartContext.Provider>
   );

@@ -1,22 +1,26 @@
 import {
   ADD_TO_CART,
-  CLEAR_CART,
-  COUNT_CART_TOTALS,
   REMOVE_CART_ITEM,
-  TOGGLE_CART_ITEM_AMOUNT,
+  INCREASE_CART_ITEM,
+  COUNT_CART_TOTALS,
+  CLEAR_CART,
 } from '../actions';
 
 const cartReducer = (state, action) => {
   switch (action.type) {
     case ADD_TO_CART: {
       const { id, color, amount, product } = action.payload;
+
+      // checking if product exist regardless of color
       const existingProduct = state.cart.find((item) => item.id === id);
 
       if (existingProduct) {
+        // checking if product with this specific color already exist
         const existingProductColor = state.cart.find(
           (item) => item.uniqueId === id + color
         );
 
+        // total amount in cart regardless of the color of the item
         const totalAmountInCart = state.cart.reduce((total, item) => {
           if (item.id === id) {
             total += item.amount;
@@ -90,6 +94,33 @@ const cartReducer = (state, action) => {
     }
     case REMOVE_CART_ITEM: {
       const newCart = state.cart.filter((item) => item.id !== action.payload);
+      return { ...state, cart: newCart };
+    }
+    case INCREASE_CART_ITEM: {
+      const { id, uniqueId } = action.payload;
+
+      // total amount in cart regardless of the color of the item
+      const totalAmountInCart = state.cart.reduce((total, item) => {
+        if (item.id === id) {
+          total += item.amount;
+        }
+
+        return total;
+      }, 0);
+
+      const newCart = state.cart.map((product) => {
+        if (product.uniqueId === uniqueId) {
+          const availableQuantity = product.max - totalAmountInCart;
+          if (availableQuantity > 0) {
+            return { ...product, amount: product.amount + 1 };
+          } else {
+            return product;
+          }
+        } else {
+          return product;
+        }
+      });
+
       return { ...state, cart: newCart };
     }
     case CLEAR_CART: {

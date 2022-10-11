@@ -5,10 +5,12 @@ import AmountButtons from './AmountButtons';
 import { formatPrice } from '../utils/helpers';
 import { FaTrash } from 'react-icons/fa';
 
-const CartItem = ({ id, image, name, color, price, amount }) => {
-  const { removeItem, toggleAmount } = useCartContext();
+const CartItem = ({ id, uniqueId, image, name, color, price, amount }) => {
+  const { removeItem, increaseAmount } = useCartContext();
 
-  const increase = () => {};
+  const increase = () => {
+    increaseAmount(id, uniqueId);
+  };
 
   const decrease = () => {};
 
@@ -87,8 +89,8 @@ const Wrapper = styled.article`
     border: transparent;
     letter-spacing: var(--spacing);
     background: var(--color-red-dark);
-    width: 2rem;
-    height: 2rem;
+    width: 2.2rem;
+    height: 2.2rem;
     display: flex;
     align-items: center;
     justify-content: center;
