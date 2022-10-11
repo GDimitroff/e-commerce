@@ -88,6 +88,13 @@ const cartReducer = (state, action) => {
         return { ...state, cart: [...state.cart, newItem] };
       }
     }
+    case REMOVE_CART_ITEM: {
+      const newCart = state.cart.filter((item) => item.id !== action.payload);
+      return { ...state, cart: newCart };
+    }
+    case CLEAR_CART: {
+      return { ...state, cart: [] };
+    }
     default: {
       throw new Error(`No matching action type: "${action.type}"`);
     }
