@@ -4,6 +4,7 @@ import {
   ADD_TO_CART,
   REMOVE_CART_ITEM,
   INCREASE_CART_ITEM,
+  DECREASE_CART_ITEM,
   COUNT_CART_TOTALS,
   CLEAR_CART,
 } from '../actions';
@@ -41,6 +42,10 @@ const CartProvider = ({ children }) => {
     dispatch({ type: INCREASE_CART_ITEM, payload: { id, uniqueId } });
   };
 
+  const decreaseAmount = (uniqueId) => {
+    dispatch({ type: DECREASE_CART_ITEM, payload: uniqueId });
+  };
+
   const clearCart = () => {
     dispatch({ type: CLEAR_CART });
   };
@@ -56,6 +61,7 @@ const CartProvider = ({ children }) => {
         addToCart,
         removeItem,
         increaseAmount,
+        decreaseAmount,
         clearCart,
       }}>
       {children}

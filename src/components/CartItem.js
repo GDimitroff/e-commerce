@@ -6,13 +6,15 @@ import { formatPrice } from '../utils/helpers';
 import { FaTrash } from 'react-icons/fa';
 
 const CartItem = ({ id, uniqueId, image, name, color, price, amount }) => {
-  const { removeItem, increaseAmount } = useCartContext();
+  const { removeItem, increaseAmount, decreaseAmount } = useCartContext();
 
   const increase = () => {
     increaseAmount(id, uniqueId);
   };
 
-  const decrease = () => {};
+  const decrease = () => {
+    decreaseAmount(uniqueId);
+  };
 
   return (
     <Wrapper>

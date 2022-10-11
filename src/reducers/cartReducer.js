@@ -2,6 +2,7 @@ import {
   ADD_TO_CART,
   REMOVE_CART_ITEM,
   INCREASE_CART_ITEM,
+  DECREASE_CART_ITEM,
   COUNT_CART_TOTALS,
   CLEAR_CART,
 } from '../actions';
@@ -114,11 +115,26 @@ const cartReducer = (state, action) => {
       const newCart = state.cart.map((product) => {
         if (product.uniqueId === uniqueId) {
           const availableQuantity = product.max - totalAmountInCart;
-          if (availableQuantity > 0) {
-            return { ...product, amount: product.amount + 1 };
-          } else {
-            return product;
+          let newAmount =
+            availableQuantity > 0 ? product.amount + 1 : product.amount;
+
+          return { ...product, amount: newAmount };
+        } else {
+          return product;
+        }
+      });
+
+      return { ...state, cart: newCart };
+    }
+    case DECREASE_CART_ITEM: {
+      const newCart = state.cart.map((product) => {
+        if (product.uniqueId === action.payload) {
+          let newAmount = product.amount - 1;
+          if (newAmount < 1) {
+            newAmount = 1;
           }
+
+          return { ...product, amount: newAmount };
         } else {
           return product;
         }
