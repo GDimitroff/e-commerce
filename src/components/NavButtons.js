@@ -1,22 +1,41 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import {
+  signInWithPopup,
+  signInWithRedirect,
+  signOut,
+  GoogleAuthProvider,
+} from 'firebase/auth';
 
-import { useAuthState, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase';
 import { useGlobalContext } from '../context/GlobalContext';
 import { useCartContext } from '../context/CartContext';
-
 import {
   AiOutlineShoppingCart,
-  AiOutlineUserAdd,
+  AiOutlineLoading,
+  AiFillGoogleSquare,
   AiOutlineUserDelete,
 } from 'react-icons/ai';
 
 const NavButtons = () => {
   const [user, loading] = useAuthState(auth);
-  const [signInWithGoogle] = useSignInWithGoogle(auth);
   const { closeSidebar } = useGlobalContext();
   const { totalItems } = useCartContext();
+
+  const login = () => {
+    const provider = new GoogleAuthProvider();
+
+    if (window.innerWidth <= 576) {
+      signInWithRedirect(auth, provider);
+    } else {
+      signInWithPopup(auth, provider);
+    }
+  };
+
+  const logout = () => {
+    signOut(auth);
+  };
 
   return (
     <Wrapper className="nav-buttons-wrapper">
@@ -27,12 +46,21 @@ const NavButtons = () => {
           <span className="cart-value">{totalItems}</span>
         </span>
       </Link>
-      <button
-        type="button"
-        className="auth-btn"
-        onClick={() => signInWithGoogle()}>
-        Login <AiOutlineUserAdd />
-      </button>
+      {loading && (
+        <button type="button" className="loading-btn">
+          <AiOutlineLoading />
+        </button>
+      )}
+      {!loading && !user && (
+        <button type="button" className="auth-btn" onClick={login}>
+          Login <AiFillGoogleSquare />
+        </button>
+      )}
+      {!loading && user && (
+        <button type="button" className="auth-btn" onClick={logout}>
+          Logout <AiOutlineUserDelete />
+        </button>
+      )}
     </Wrapper>
   );
 };
@@ -62,6 +90,7 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     position: relative;
+    margin-right: 1.4rem;
 
     svg {
       width: 2.2rem;
@@ -87,6 +116,34 @@ const Wrapper = styled.div`
     padding: 12px;
   }
 
+  .loading-btn {
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: none;
+    color: var(--color-grey-6);
+    padding: 0.6rem 0;
+    animation-name: spin;
+    animation-duration: 700ms;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    svg {
+      width: 2.2rem;
+      height: 2.2rem;
+    }
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
   .auth-btn {
     font-family: inherit;
     font-size: 1.6rem;
@@ -97,7 +154,6 @@ const Wrapper = styled.div`
     color: var(--color-grey-6);
     letter-spacing: var(--spacing);
     padding: 0.6rem 0;
-    margin-left: 1.4rem;
     border-bottom: 2px solid transparent;
     transition: var(--transition);
     cursor: pointer;
