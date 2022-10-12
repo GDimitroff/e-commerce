@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import { useProductsContext } from '../context/ProductsContext';
 import Error from './Error';
@@ -31,18 +32,21 @@ const FeaturedProducts = () => {
           })}
         </div>
       </div>
+      <Link to="/products" className="btn">
+        All Products
+      </Link>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.section`
+  text-align: center;
   padding: 3rem;
   background-color: var(--color-grey-9);
   border-radius: var(--radius);
 
   h2,
   .underline {
-    text-align: center;
     margin: 0 auto;
   }
 

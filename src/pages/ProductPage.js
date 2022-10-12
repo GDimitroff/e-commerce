@@ -26,7 +26,7 @@ const ProductPage = () => {
 
   useEffect(() => {
     fetchProduct(`${URL}${id}`);
-  }, [id]);
+  }, [id, fetchProduct]);
 
   useEffect(() => {
     if (error) {

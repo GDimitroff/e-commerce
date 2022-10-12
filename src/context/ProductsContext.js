@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useReducer } from 'react';
+import React, { useCallback, useContext, useEffect, useReducer } from 'react';
 import axios from 'axios';
 
 import productsReducer from '../reducers/productsReducer';
@@ -39,7 +39,7 @@ const ProductsProvider = ({ children }) => {
     }
   };
 
-  const fetchProduct = async (url) => {
+  const fetchProduct = useCallback(async (url) => {
     dispatch({ type: GET_PRODUCT_LOADING });
 
     try {
@@ -49,7 +49,7 @@ const ProductsProvider = ({ children }) => {
     } catch (error) {
       dispatch({ type: GET_PRODUCT_ERROR });
     }
-  };
+  }, []);
 
   useEffect(() => {
     fetchProducts(URL);
