@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+import { useAuthContext } from '../context/AuthContext';
 import { useCartContext } from '../context/CartContext';
 import { formatPrice } from '../utils/helpers';
 
 const CartTotals = () => {
   const { totalAmount, shippingFee } = useCartContext();
+  const { user, login } = useAuthContext();
 
   return (
     <Wrapper>
@@ -22,9 +24,15 @@ const CartTotals = () => {
             Order total: <span>{formatPrice(totalAmount + shippingFee)}</span>
           </h4>
         </article>
-        <Link to="/checkout" className="btn">
-          Proceed to checkout
-        </Link>
+        {user ? (
+          <Link to="/checkout" className="btn">
+            Proceed to checkout
+          </Link>
+        ) : (
+          <button type="button" className="btn" onClick={login}>
+            Login
+          </button>
+        )}
       </div>
     </Wrapper>
   );

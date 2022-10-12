@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+import { useAuthContext } from '../context/AuthContext';
 import { useGlobalContext } from '../context/GlobalContext';
 
 import logo from '../assets/logo.png';
@@ -10,6 +11,7 @@ import NavButtons from './NavButtons';
 
 const Nav = () => {
   const { openSidebar } = useGlobalContext();
+  const { user } = useAuthContext();
 
   return (
     <NavContainer>
@@ -31,6 +33,11 @@ const Nav = () => {
               </li>
             );
           })}
+          {user && (
+            <li>
+              <Link to="/checkout">Checkout</Link>
+            </li>
+          )}
         </ul>
         <NavButtons />
       </div>
@@ -94,7 +101,7 @@ const NavContainer = styled.nav`
     .nav-links {
       display: flex;
       justify-content: center;
-      gap: 18px;
+      gap: 6px;
 
       a {
         color: var(--color-grey-6);

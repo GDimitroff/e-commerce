@@ -1,14 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import {
-  signInWithPopup,
-  signInWithRedirect,
-  signOut,
-  GoogleAuthProvider,
-} from 'firebase/auth';
 
-import { auth } from '../firebase';
+import { useAuthContext } from '../context/AuthContext';
 import { useGlobalContext } from '../context/GlobalContext';
 import { useCartContext } from '../context/CartContext';
 import {
@@ -19,23 +12,9 @@ import {
 } from 'react-icons/ai';
 
 const NavButtons = () => {
-  const [user, loading] = useAuthState(auth);
+  const { loading, user, login, logout } = useAuthContext();
   const { closeSidebar } = useGlobalContext();
   const { totalItems } = useCartContext();
-
-  const login = () => {
-    const provider = new GoogleAuthProvider();
-
-    if (window.innerWidth <= 576) {
-      signInWithRedirect(auth, provider);
-    } else {
-      signInWithPopup(auth, provider);
-    }
-  };
-
-  const logout = () => {
-    signOut(auth);
-  };
 
   return (
     <Wrapper className="nav-buttons-wrapper">

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+import { useAuthContext } from '../context/AuthContext';
 import { useGlobalContext } from '../context/GlobalContext';
 
 import logo from '../assets/logo.png';
@@ -10,6 +11,7 @@ import NavButtons from './NavButtons';
 
 const Sidebar = () => {
   const { isSidebarOpen, closeSidebar } = useGlobalContext();
+  const { user } = useAuthContext();
 
   return (
     <SidebarContainer>
@@ -34,9 +36,11 @@ const Sidebar = () => {
               </li>
             );
           })}
-          <li onClick={closeSidebar}>
-            <Link to="checkout">Checkout</Link>
-          </li>
+          {user && (
+            <li onClick={closeSidebar}>
+              <Link to="/checkout">Checkout</Link>
+            </li>
+          )}
         </ul>
         <NavButtons className="nav-buttons" />
       </aside>
