@@ -1,10 +1,5 @@
 import React, { useContext } from 'react';
-import {
-  signInWithPopup,
-  signInWithRedirect,
-  signOut,
-  GoogleAuthProvider,
-} from 'firebase/auth';
+import { signInWithRedirect, signOut, GoogleAuthProvider } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase';
 
@@ -15,12 +10,7 @@ const AuthProvider = ({ children }) => {
 
   const login = () => {
     const provider = new GoogleAuthProvider();
-
-    if (window.innerWidth <= 576) {
-      signInWithRedirect(auth, provider);
-    } else {
-      signInWithPopup(auth, provider);
-    }
+    signInWithRedirect(auth, provider);
   };
 
   const logout = () => {
