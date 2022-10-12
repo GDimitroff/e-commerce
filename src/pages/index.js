@@ -6,5 +6,16 @@ import Cart from './CartPage';
 import Error from './ErrorPage';
 import Checkout from './CheckoutPage';
 import Layout from './Layout';
+import ProtectedRoute from './ProtectedRoute';
 
-export { Home, Products, Product, About, Cart, Error, Checkout, Layout };
+export {
+  Home,
+  Products,
+  Product,
+  About,
+  Cart,
+  Error,
+  Checkout,
+  Layout,
+  ProtectedRoute,
+};

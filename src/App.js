@@ -8,6 +8,7 @@ import {
   Error,
   About,
   Layout,
+  ProtectedRoute,
 } from './pages';
 
 const App = () => {
@@ -19,7 +20,14 @@ const App = () => {
         <Route path="products" element={<Products />} />
         <Route path="products/:id" element={<Product />} />
         <Route path="cart" element={<Cart />} />
-        <Route path="checkout" element={<Checkout />} />
+        <Route
+          path="checkout"
+          element={
+            <ProtectedRoute>
+              <Checkout />
+            </ProtectedRoute>
+          }
+        />
         <Route path="*" element={<Error />} />
       </Route>
     </Routes>
